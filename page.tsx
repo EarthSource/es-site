@@ -8,7 +8,7 @@ type AnimationState = "init" | "idle" | "erasing1" | "erasing2" | "typing1" | "t
 
 export default function Page() {
   const firstWords = ["Earth", "Weather", "Fire", "Methane", "Satellite", "Geospatial", "Wind", "Ocean", "Climate", "Crop", "Rain"]
-  const secondWords = ["AI", "Forecasting", "LLMs", "Trading", "Training", "Agriculture", "Disaster Response", "Mining", "You"]
+  const secondWords = ["AI", "Forecasting", "LLMs", "Trading", "Training", "Agriculture", "Disaster Response", "Mining", "Utilities"]
 
   const [firstWord, setFirstWord] = useState("Earth")
   const [secondWord, setSecondWord] = useState("AI")
