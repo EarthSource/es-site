@@ -7,8 +7,8 @@ import Link from "next/link"
 type AnimationState = "idle" | "erasing1" | "erasing2" | "typing1" | "typing2"
 
 export default function Page() {
-  const firstWords = ["Earth", "Weather", "Fire", "Methane"]
-  const secondWords = ["AI", "Forecasting", "LLMs"]
+  const firstWords = ["Earth", "Weather", "Fire", "Methane", "Satellite", "Geospatial", "Wind", "Ocean", "Climate", "Crop", "Rain"]
+  const secondWords = ["AI", "Forecasting", "LLMs", "Trading", "Training", "Agriculture", "Disaster Response", "Mining", "You"]
 
   const [firstWord, setFirstWord] = useState("Earth")
   const [secondWord, setSecondWord] = useState("AI")
