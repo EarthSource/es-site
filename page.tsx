@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from "react"
 import { Globe } from "lucide-react"
 import Link from "next/link"
 
-type AnimationState = "idle" | "erasing1" | "erasing2" | "typing1" | "typing2"
+type AnimationState = "init" | "idle" | "erasing1" | "erasing2" | "typing1" | "typing2"
 
 export default function Page() {
   const firstWords = ["Earth", "Weather", "Fire", "Methane", "Satellite", "Geospatial", "Wind", "Ocean", "Climate", "Crop", "Rain"]
@@ -21,10 +21,15 @@ export default function Page() {
     const typeDelay = 100
     const eraseDelay = 50
     const pauseDelay = 400
+    const initialDelay = 5000
     let timeout: NodeJS.Timeout
 
     const animateNextState = () => {
       switch (animationState) {
+        case "init":
+          timeout = setTimeout(() => setAnimationState("idle"), initialDelay)
+          break
+
         case "idle":
           const nextFirst = firstWords[Math.floor(Math.random() * firstWords.length)]
           const nextSecond = secondWords[Math.floor(Math.random() * secondWords.length)]
