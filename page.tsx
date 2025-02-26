@@ -1,14 +1,14 @@
 "use client"
 
 import { useEffect, useState, useRef } from "react"
-import { Globe } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 
 type AnimationState = "init" | "idle" | "erasing1" | "erasing2" | "typing1" | "typing2"
 
 export default function Page() {
   const firstWords = ["Earth", "Weather", "Fire", "Methane", "Satellite", "Geospatial", "Wind", "Ocean", "Climate", "Crop", "Rain"]
-  const secondWords = ["AI", "Forecasting", "LLMs", "Commodities", "Training", "Agriculture", "Disaster Response", "Mining", "Utilities", "Tensorflow", "PyTorch", "Keras"]
+  const secondWords = ["AI", "Forecasting", "LLMs", "Commodities", "Training AI", "Agriculture", "Disaster Response", "Mining", "Utilities", "Tensorflow", "PyTorch", "Keras"]
 
   const [firstWord, setFirstWord] = useState("Earth")
   const [secondWord, setSecondWord] = useState("AI")
@@ -90,7 +90,7 @@ export default function Page() {
     <div className="min-h-screen bg-black text-white flex flex-col">
       <header className="p-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <Globe className="h-6 w-6" />
+          <Image src="/logo-white.svg" alt="Logo" width={24} height={24}/>
           <span className="font-bold text-lg">EarthSource.ai</span>
         </div>
         <nav className="hidden sm:flex items-center gap-6">
@@ -215,7 +215,7 @@ export default function Page() {
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-green-500/20 rounded-lg blur-3xl" />
               <div className="relative bg-gray-900 border border-gray-800 rounded-lg p-4">
                 <div className="aspect-[4/3] rounded overflow-hidden bg-black/50">
-                  <div className="w-full h-full bg-[url('/placeholder.svg?height=600&width=800')] bg-cover bg-center opacity-75" />
+                  <div className="w-full h-full bg-[url('/logo.svg?height=600&width=800')] bg-cover bg-center opacity-75" />
                 </div>
                 <div className="mt-4 flex items-center justify-between text-sm">
                   <div className="flex items-center gap-3">
