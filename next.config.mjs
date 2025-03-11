@@ -18,6 +18,15 @@ const nextConfig = {
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/book-meeting',
+        destination: 'https://calendar.app.google/q4iYKU3ejmSLyafP6',
+        permanent: true,
+      },
+    ];
+  },
 }
 
 mergeConfig(nextConfig, userConfig)
