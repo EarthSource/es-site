@@ -111,7 +111,7 @@ export default function Page() {
           </p>
           <div className="flex gap-4 justify-center">
             <Link
-              href="#"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSf0a5t1EkFv9d6_sAzR4pRAe3RrUTYyGWiYHnnnBZhLQVctDQ/viewform?usp=header"
               className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
             >
               Join Waitlist
