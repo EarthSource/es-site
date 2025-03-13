@@ -85,6 +85,30 @@ export default function Page() {
     return () => clearTimeout(timeout)
   }, [animationState, displayFirst, displaySecond])
 
+  // Add the script dynamically using useEffect
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://asciinema.org/a/707979.js";
+    script.id = "asciicast-707979";
+    script.async = true;
+
+    script.setAttribute("data-autoplay", "true");
+    script.setAttribute("data-loop", "true");
+    script.setAttribute("controls", "false");
+
+    const container = document.getElementById("preview-section");
+    if (container) {
+      container.appendChild(script);
+    }
+
+    // Clean up the script when the component unmounts
+    return () => {
+      if (container) {
+        container.removeChild(script);
+      }
+    };
+  }, []);
+
   return (
 
     <div>
@@ -193,15 +217,8 @@ export default function Page() {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-green-500/20 rounded-lg blur-3xl" />
               <div className="relative bg-gray-900 border border-gray-800 rounded-lg p-4">
-                <div className="aspect-[4/3] rounded overflow-hidden bg-black/50">
-                  <div className="w-full h-full bg-[url('/logo.svg?height=600&width=800')] bg-cover bg-center opacity-75" />
-                </div>
-                <div className="mt-4 flex items-center justify-between text-sm">
-                  <div className="flex items-center gap-3">
-                    <div className="h-2 w-2 rounded-full bg-green-500" />
-                    <span className="text-gray-400">Live Data Feed</span>
-                  </div>
-                  <span className="text-gray-600">Updated 2m ago</span>
+                <div id="preview-section" className="aspect-[4/3] rounded overflow-hidden bg-black/50">
+
                 </div>
               </div>
             </div>
