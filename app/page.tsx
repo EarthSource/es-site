@@ -2,12 +2,15 @@
 
 import { useEffect, useState, useRef } from "react"
 import Link from "next/link"
+import AsciinemaPlayer from '@/components/asciinema-player'
+import 'asciinema-player/dist/bundle/asciinema-player.css'
+
 
 type AnimationState = "init" | "idle" | "erasing1" | "erasing2" | "typing1" | "typing2"
 
 export default function Page() {
   const firstWords = ["Earth", "Weather", "Fire", "Methane", "Satellite", "Geospatial", "Wind", "Ocean", "Climate", "Crop", "Rain"]
-  const secondWords = ["AI", "Forecasting", "LLMs", "Commodities", "Training AI", "Agriculture", "Disaster Response", "Mining", "Utilities", "Tensorflow", "PyTorch", "Keras"]
+  const secondWords = ["AI", "Forecasting", "LLMs", "Commodities", "Training AI", "Agriculture", "Disaster Response", "Mining", "Utilities", "Tensorflow", "PyTorch", "Keras", "Ray"]
 
   const [, setFirstWord] = useState("Earth")
   const [, setSecondWord] = useState("AI")
@@ -85,29 +88,6 @@ export default function Page() {
     return () => clearTimeout(timeout)
   }, [animationState, displayFirst, displaySecond])
 
-  // Add the script dynamically using useEffect
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://asciinema.org/a/707979.js";
-    script.id = "asciicast-707979";
-    script.async = true;
-
-    script.setAttribute("data-autoplay", "true");
-    script.setAttribute("data-loop", "true");
-    script.setAttribute("controls", "false");
-
-    const container = document.getElementById("preview-section");
-    if (container) {
-      container.appendChild(script);
-    }
-
-    // Clean up the script when the component unmounts
-    return () => {
-      if (container) {
-        container.removeChild(script);
-      }
-    };
-  }, []);
 
   return (
 
@@ -217,9 +197,7 @@ export default function Page() {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-green-500/20 rounded-lg blur-3xl" />
               <div className="relative bg-gray-900 border border-gray-800 rounded-lg p-4">
-                <div id="preview-section" className="aspect-[4/3] rounded overflow-hidden bg-black/50">
-
-                </div>
+                <AsciinemaPlayer src="/asciinema/demo-cut2.cast" autoPlay={true} preload={false} loop={true} controls={false} />
               </div>
             </div>
           </div>
