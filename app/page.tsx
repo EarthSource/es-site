@@ -9,8 +9,6 @@ import 'asciinema-player/dist/bundle/asciinema-player.css'
 type AnimationState = "init" | "idle" | "erasing1" | "erasing2" | "typing1" | "typing2"
 
 export default function Page() {
-  const firstWords = ["Earth", "Weather", "Fire", "Methane", "Satellite", "Geospatial", "Wind", "Ocean", "Climate", "Crop", "Rain"]
-  const secondWords = ["AI", "Forecasting", "LLMs", "Commodities", "Training AI", "Agriculture", "Disaster Response", "Mining", "Utilities", "Tensorflow", "PyTorch", "Keras", "Ray"]
 
   const [, setFirstWord] = useState("Earth")
   const [, setSecondWord] = useState("AI")
@@ -20,6 +18,9 @@ export default function Page() {
   const nextWordsRef = useRef<[string, string]>(["Earth", "AI"])
 
   useEffect(() => {
+    const firstWords = ["Earth", "Weather", "Fire", "Methane", "Satellite", "Geospatial", "Wind", "Ocean", "Climate", "Crop", "Rain"]
+    const secondWords = ["AI", "Forecasting", "LLMs", "Commodities", "Training AI", "Agriculture", "Disaster Response", "Mining", "Utilities", "Tensorflow", "PyTorch", "Keras", "Ray"]
+
     const typeDelay = 100
     const eraseDelay = 50
     const pauseDelay = 400

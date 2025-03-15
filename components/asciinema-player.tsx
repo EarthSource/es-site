@@ -30,6 +30,7 @@ function AsciinemaPlayer ({src, ...asciinemaOptions}: AsciinemaPlayerProps) {
     const currentRef = ref.current
     const instance = player?.create(src, currentRef, asciinemaOptions);
     return () => {instance?.dispose()}
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [src, player]);
 
   return <div ref={ref} />;

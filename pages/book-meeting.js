@@ -1,11 +1,13 @@
+import Head from 'next/head'
+
 // pages/book-meeting.js
 export default function RedirectPage() {
   return (
     <html>
-    <head>
+    <Head>
       <meta httpEquiv="refresh" content="0; URL=https://calendar.app.google/q4iYKU3ejmSLyafP6" />
       <title>Redirecting...</title>
-    </head>
+    </Head>
     <body>
     <p>
       Redirecting to <a href="https://calendar.app.google/q4iYKU3ejmSLyafP6">Google Calendar</a>.
